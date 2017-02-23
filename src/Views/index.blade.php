@@ -28,11 +28,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($notifications as $notification)
+                                    @forelse ($user->notifications as $notification)
                                         <tr>
-                                            <td>{{ $permission->id }}</td>
-                                            <td>{{ $permission->name }}</td>
-                                            <td>{{ $permission->slug }}</td>
+                                            <td>{{ Laralum\Users\Models\User::findOrFail($notification->notifiable_id)->first()->name }}</td>
+                                            <td>{{ $notification->created_at->diffForHumans() }}</td>
                                             <td class="uk-table-shrink">
                                                 <div class="uk-button-group">
                                                     <a href="{{ route('laralum::permissions.edit', ['permission' => $permission->id]) }}" class="uk-button uk-button-small uk-button-default">@lang('laralum_permissions::general.edit')</a>

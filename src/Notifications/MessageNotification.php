@@ -11,16 +11,20 @@ class MessageNotification extends Notification
 {
     use Queueable;
 
+    public $subject;
     public $message;
+    public $user;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($subject, $message, $user = null)
     {
+        $this->subject = $subject;
         $this->message = $message;
+        $this->user = $user;
     }
 
     /**
@@ -43,9 +47,10 @@ class MessageNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject($this->subject)
+                    ->greeting(__('laralum_notifications::general.new_notification'))
+                    ->line(__('laralum_notifications::general.new_message'))
+                    ->action(__('laralum_notifications::general.view_notification'), route('laralum::notifications.index'));
     }
 
     /**
@@ -57,7 +62,9 @@ class MessageNotification extends Notification
     public function toDatabase ($notifiable)
     {
         return [
+            'subject' => $this->subject,
             'message' => $this->message,
+            'user' => $this->user,
         ];
     }
 }

@@ -4,45 +4,48 @@
 @section('subtitle', __('laralum_notifications::general.notifications_desc'))
 @section('breadcrumb')
     <ul class="uk-breadcrumb">
-        <li><a href="{{ route('laralum::index') }}">@lang('laralum_permissions::general.home')</a></li>
-        <li><span>@lang('laralum_permissions::general.notifications')</span></li>
+        <li><a href="{{ route('laralum::index') }}">@lang('laralum_notifications::general.home')</a></li>
+        <li><span>@lang('laralum_notifications::general.notifications')</span></li>
     </ul>
 @endsection
 @section('content')
     <div class="uk-container uk-container-large">
-        <div uk-grid class="uk-child-width-1-1">
-            <div>
+        <div uk-grid>
+            <div class="uk-width-1-1@s uk-width-1-5@l"></div>
+            <div class="uk-width-1-1@s uk-width-3-5@l">
                 <div class="uk-card uk-card-default">
                     <div class="uk-card-header">
-                        @lang('laralum_permissions::general.permission_list')
+                        @lang('laralum_notifications::general.notifications')
                     </div>
                     <div class="uk-card-body">
                         <div class="uk-overflow-auto">
                             <table class="uk-table uk-table-striped">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>@lang('laralum_permissions::general.sender')</th>
-                                        <th>@lang('laralum_permissions::general.date')</th>
-                                        <th>@lang('laralum_permissions::general.actions')</th>
+                                        <th>@lang('laralum_notifications::general.status')</th>
+                                        <th>@lang('laralum_notifications::general.subject')</th>
+                                        <th>@lang('laralum_notifications::general.date')</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($user->notifications as $notification)
                                         <tr>
-                                            <td>{{ Laralum\Users\Models\User::findOrFail($notification->notifiable_id)->first()->name }}</td>
-                                            <td>{{ $notification->created_at->diffForHumans() }}</td>
-                                            <td class="uk-table-shrink">
-                                                <div class="uk-button-group">
-                                                    <a href="{{ route('laralum::permissions.edit', ['permission' => $permission->id]) }}" class="uk-button uk-button-small uk-button-default">@lang('laralum_permissions::general.edit')</a>
-                                                    <a href="{{ route('laralum::permissions.destroy.confirm', ['permission' => $permission->id]) }}" class="uk-button uk-button-small uk-button-danger">@lang('laralum_permissions::general.delete')</a>
-                                                </div>
+                                            <td>
+                                                @if ($notification->unread())
+                                                    <span class="uk-label uk-label-success">@lang('laralum_notifications::general.unread')</span>
+                                                @else
+                                                    <span class="uk-label uk-label-warning">@lang('laralum_notifications::general.read')</span>
+                                                @endif
                                             </td>
+                                            <td>
+                                                <a class="" href="{{ route('laralum::notifications.show', ['notification' => $notification->id]) }}">
+                                                    {{ $notification->data['subject'] }}
+                                                </a>
+                                            </td>
+                                            <td>{{ $notification->created_at->diffForHumans() }}</td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td>-</td>
-                                            <td>-</td>
                                             <td>-</td>
                                             <td>-</td>
                                         </tr>
@@ -53,6 +56,7 @@
                     </div>
                 </div>
             </div>
+            <div class="uk-width-1-1@s uk-width-1-5@l"></div>
         </div>
     </div>
 @endsection

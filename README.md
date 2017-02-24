@@ -7,13 +7,7 @@ Notifications module for laralum
 composer require laralum/notifications
 ```
 
-Publish the notifications table:
-
-```
-php artisan notifications:table
-```
-
-And finally migrate the database:
+Migrate the database:
 
 ```
 php artisan migrate

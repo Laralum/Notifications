@@ -1,13 +1,13 @@
 <?php
 
 Route::group([
-        'middleware' => ['web', 'laralum.base', 'laralum.auth'],
+        'middleware' => [
+            'web', 'laralum.base', 'laralum.auth',
+            'can:access,Laralum\Notifications\Models\Notification',
+        ],
         'prefix' => config('laralum.settings.base_url'),
-        'namespace' => 'Laralum\Permissions\Controllers',
+        'namespace' => 'Laralum\Notifications\Controllers',
         'as' => 'laralum::'
     ], function () {
-        Route::get('/test', function() {
-            Laralum\Users\Models\User::first()->notify(new Laralum\Notifications\Notifications\MessageNotification('Hey bois'));
-        });
-        Route::resource('notifications', 'PermissionController', ['only' => ['show', 'create', 'delete']]);
+        Route::resource('notifications', 'NotificationsController', ['only' => ['index', 'show', 'create', 'store']]);
 });

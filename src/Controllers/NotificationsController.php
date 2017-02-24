@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Laralum\Notifications\Models\Notification;
 use Illuminate\Http\Request;
 use Laralum\Users\Models\User;
-use Laralum\Notifications\Notifications\CustomNotification;
+use Laralum\Notifications\Notifications\MessageNotification;
+use Auth;
 
 class NotificationsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of all the notifications.
      *
      * @return \Illuminate\Http\Response
      */
@@ -21,94 +22,52 @@ class NotificationsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the notification.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Notification $notification)
+    {
+        $this->authorize('view', $notification);
+
+        $notification->markAsRead();
+        return view('laralum_notifications::show', ['notification' => $notification]);
+    }
+
+    /**
+     * Show the form for creating a new notification.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
+        $this->authorize('create', Notification::class);
+
         return view('laralum_notifications::create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created notification in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Notification::class);
+
         $this->validate($request, [
             'email' => 'required|email|exists:users,email',
+            'subject' => 'required|min:10|max:30',
             'message' => 'required|max:1500',
         ]);
 
+        $me = User::findOrFail(Auth::id());
+
         User::where(['email' => $request->email])->first()
-                    ->notify(new CustomNotification($request->message));
+                    ->notify(new MessageNotification($request->subject, $request->message, $me));
 
 
-        return redirect()->route('laralum::permissions.index')->with('success','Permission added!');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \Laralum\Permission\Models\Permission $permission
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Permission $permission)
-    {
-        return view('laralum_permissions::edit', ['permission' => $permission]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param \Laralum\Permission\Models\Permission $permission
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Permission $permission)
-    {
-
-        if (str_replace(' ', '', $request->slug) != $request->slug) {
-            return redirect()->back()->withInput()->with('error', __('laralum_permissions::general.slug_cannot_contain_spaces'));
-        }
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'slug' => 'required|max:255|unique:laralum_permissions,slug,'.$permission->id,
-            'description' => 'required|max:500',
-        ]);
-
-        $permission->update($request->all());
-        return redirect()->route('laralum::permissions.index')->with('success','Permission edited!');
-    }
-
-    /**
-     * Displays a view to confirm delete.
-     *
-     * @param \Laralum\Permission\Models\Permission $permission
-     * @return \Illuminate\Http\Response
-     */
-    public function confirmDelete(Permission $permission)
-    {
-        return view('laralum::pages.confirmation', [
-            'method' => 'DELETE',
-            'action' => route('laralum::permissions.destroy', ['permission' => $permission->id]),
-        ]);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param \Laralum\Permission\Models\Permission $permission
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request, Permission $permission)
-    {
-        $permission->delete();
-
-        return redirect()->route('laralum::permissions.index')->with('success','Permission deleted!');
+        return redirect()->route('laralum::notifications.index')->with('success', __('laralum_notifications::general.notification_sent'));
     }
 }

@@ -4,6 +4,7 @@ namespace Laralum\Notifications\Controllers;
 
 use App\Http\Controllers\Controller;
 use Laralum\Notifications\Models\Notification;
+use Laralum\Notifications\Models\Settings;
 use Illuminate\Http\Request;
 use Laralum\Users\Models\User;
 use Laralum\Notifications\Notifications\MessageNotification;
@@ -69,5 +70,21 @@ class NotificationsController extends Controller
 
 
         return redirect()->route('laralum::notifications.index')->with('success', __('laralum_notifications::general.notification_sent'));
+    }
+
+    /**
+     * Save the notification settings.
+     *
+     * @param Illuminate\Http\Request $request
+     */
+    public function settings(Request $request)
+    {
+        $this->authorize('update', Settings::class);
+
+        Settings::first()->update([
+            'mail_enabled' => $request->mail_enabled ? true : false,
+        ]);
+
+        return redirect()->route('laralum::settings.index', ['p' => 'Notifications'])->with('success', __('laralum_notifications::general.settings_updated'));
     }
 }

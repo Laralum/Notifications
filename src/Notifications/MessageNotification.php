@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Laralum\Notifications\Models\Settings;
 
 class MessageNotification extends Notification
 {
@@ -35,7 +36,7 @@ class MessageNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return Settings::first()->mail_enabled ? ['mail', 'database'] : ['database'];
     }
 
     /**

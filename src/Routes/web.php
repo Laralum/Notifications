@@ -9,5 +9,6 @@ Route::group([
         'namespace' => 'Laralum\Notifications\Controllers',
         'as' => 'laralum::'
     ], function () {
+        Route::post('notifications/settings', 'NotificationsController@settings')->name('notifications.settings.update');
         Route::resource('notifications', 'NotificationsController', ['only' => ['index', 'show', 'create', 'store']]);
 });

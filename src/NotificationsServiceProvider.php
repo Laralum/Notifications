@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Gate;
 
 use Laralum\Notifications\Models\Notification;
 use Laralum\Notifications\Policies\NotificationsPolicy;
+use Laralum\Notifications\Models\Settings;
+use Laralum\Notifications\Policies\SettingsPolicy;
 
 use Laralum\Permissions\PermissionsChecker;
 
@@ -19,6 +21,7 @@ class NotificationsServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Notification::class => NotificationsPolicy::class,
+        Settings::class => SettingsPolicy::class,
     ];
 
     /**
@@ -42,6 +45,11 @@ class NotificationsServiceProvider extends ServiceProvider
             'slug' => 'laralum::notifications.view',
             'desc' => "Allows viewing notifications",
         ],
+        [
+            'name' => 'Edit Notifications Settings',
+            'slug' => 'laralum::notifications.settings',
+            'desc' => 'Allows edititing the notification settings',
+        ]
     ];
 
     /**

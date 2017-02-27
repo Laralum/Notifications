@@ -35,7 +35,7 @@ return [
     'new_notification'          => 'You have a new notification!',
     'new_message'               => 'You have a new message in your notifications panel, check it out!',
 
-    'mail_enabled'              => 'Main Enabled',
+    'mail_enabled'              => 'Mail Enabled',
     'enabled'                   => 'Enabled',
     'mail_enabled_hp'           => 'Enable sending email notifications if posible',
     'mail_email'                => 'Email',

@@ -18,7 +18,7 @@
                         <article class="uk-article">
                             <h1 class="uk-article-title"><a class="uk-link-reset" href="">{{ $notification->data['subject'] }}</a></h1>
                             <p class="uk-article-meta">@lang('laralum_notifications::general.sent_by')
-                                @if($notification->data['user'])
+                                @if(array_key_exists('user', $notification->data) and $notification->data['user'])
                                     {{ $notification->data['user']['name'] }}
                                 @else
                                     <span class='uk-label'>

@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="uk-width-1-1">
                                         <button type="submit" class="uk-button uk-width-1-1 uk-button-primary">
-                                            <span class="ion-forward"></span>&nbsp; Send Notification
+                                            <span class="ion-forward"></span>&nbsp; @lang('laralum_notifications::general.send_notification')
                                         </button>
                                     </div>
                                 </div>

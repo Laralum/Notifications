@@ -60,5 +60,6 @@ return [
     'mail_encription_ph'        => 'Enter the mail encryption',
     'mail_encription_hp'        => "Specify the mail encription",
     'save_settings'             => 'Save Notifications Settings',
-    'settings_updated'          => 'Notifications settings updated!'
+    'settings_updated'          => 'Notifications settings updated!',
+    'send_notification'         => 'Send Notification',
 ];

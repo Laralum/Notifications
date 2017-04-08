@@ -5,6 +5,7 @@
 @section('breadcrumb')
     <ul class="uk-breadcrumb">
         <li><a href="{{ route('laralum::index') }}">@lang('laralum_notifications::general.home')</a></li>
+        <li><a href="{{ route('laralum::notifications.index') }}">@lang('laralum_notifications::general.notifications')</a></li>
         <li><span>@lang('laralum_notifications::general.create_notification')</span></li>
     </ul>
 @endsection

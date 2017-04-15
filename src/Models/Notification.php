@@ -12,5 +12,4 @@ class Notification extends DatabaseNotification
      * @var string
      */
     protected $table = 'laralum_notifications';
-
 }

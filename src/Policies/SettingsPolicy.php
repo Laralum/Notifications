@@ -2,8 +2,8 @@
 
 namespace Laralum\Notifications\Policies;
 
-use Laralum\Users\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Laralum\Users\Models\User;
 
 class SettingsPolicy
 {
@@ -25,12 +25,12 @@ class SettingsPolicy
     /**
      * Determine if the current user can edit the notification settings.
      *
-     * @param  mixed  $user
+     * @param mixed $user
+     *
      * @return bool
      */
     public function update($user)
     {
         return User::findOrFail($user->id)->hasPermission('laralum::notifications.settings');
     }
-
 }

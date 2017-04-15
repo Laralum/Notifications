@@ -19,7 +19,6 @@ class Settings extends DatabaseNotification
      * @var array
      */
     protected $fillable = [
-        'mail_enabled'
+        'mail_enabled',
     ];
-
 }

@@ -58,7 +58,7 @@ return [
     'mail_password_hp'          => "Specify the mail's password used to authenticate",
     'mail_encription'           => 'Mail Encryption',
     'mail_encription_ph'        => 'Enter the mail encryption',
-    'mail_encription_hp'        => "Specify the mail encription",
+    'mail_encription_hp'        => 'Specify the mail encription',
     'save_settings'             => 'Save Notifications Settings',
     'settings_updated'          => 'Notifications settings updated!',
     'send_notification'         => 'Send Notification',

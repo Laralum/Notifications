@@ -2,9 +2,9 @@
 
 namespace Laralum\Notifications\Policies;
 
-use Laralum\Users\Models\User;
-use Laralum\Notifications\Models\Notification;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Laralum\Notifications\Models\Notification;
+use Laralum\Users\Models\User;
 
 class NotificationsPolicy
 {
@@ -26,7 +26,8 @@ class NotificationsPolicy
     /**
      * Determine if the current user can access notifications module.
      *
-     * @param  mixed $user
+     * @param mixed $user
+     *
      * @return bool
      */
     public function access($user)
@@ -37,7 +38,8 @@ class NotificationsPolicy
     /**
      * Determine if the current user can view the notifications.
      *
-     * @param  mixed $user
+     * @param mixed $user
+     *
      * @return bool
      */
     public function view($user, Notification $notification)
@@ -58,12 +60,12 @@ class NotificationsPolicy
     /**
      * Determine if the current user can create notifications.
      *
-     * @param  mixed  $user
+     * @param mixed $user
+     *
      * @return bool
      */
     public function create($user)
     {
         return User::findOrFail($user->id)->hasPermission('laralum::notifications.create');
     }
-
 }

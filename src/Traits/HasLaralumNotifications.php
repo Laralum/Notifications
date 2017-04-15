@@ -3,7 +3,6 @@
 namespace Laralum\Notifications\Traits;
 
 use Illuminate\Notifications\HasDatabaseNotifications;
-use Laralum\Notifications\DatabaseNotification;
 use Laralum\Notifications\Models\Notification;
 
 trait HasLaralumNotifications
@@ -18,5 +17,4 @@ trait HasLaralumNotifications
         return $this->morphMany(Notification::class, 'notifiable')
                             ->orderBy('created_at', 'desc');
     }
-
 }

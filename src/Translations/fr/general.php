@@ -1,0 +1,61 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Notifications Language Lines
+    |--------------------------------------------------------------------------
+    */
+
+    'notifications' => 'Notifications',
+    'my_notifications' => 'Mes notifications',
+    'notifications_desc' => 'Regardez toutes vos notifications en un seul endroit',
+    'home' => 'Accueil',
+    'subject' => 'Assujettir',
+    'date' => 'Rendez-vous amoureux',
+    'status' => 'Statut',
+    'read' => 'Lis',
+    'unread' => 'Non lu',
+    'notification_sent' => 'La notification a été envoyée',
+    'view_notification' => 'Afficher la notification',
+    'notification_info' => 'Affichage de la notification #:id envoyé :created',
+    'sent_by' => 'Envoyée par',
+    'create_notification' => 'Créer une notification',
+    'create_notification_info' => 'Créer une nouvelle notification à un utilisateur',
+    'user_email' => "Courrier électronique de l'utilisateur",
+    'user_email_ph' => "Entrez le courrier électronique de l'utilisateur",
+    'subject_ph' => 'Entrez le sujet du message',
+    'message' => 'Message',
+    'message_ph' => 'Entrez le message que vous souhaitez signaler',
+    'markdown_accepted' => "Vous êtes libre d'utiliser le redressement dans le message de notification",
+    'new_notification' => 'Vous avez une nouvelle notification!',
+    'new_message' => 'Vous avez un nouveau message dans votre panneau de notifications, vérifiez-le!',
+    'mail_enabled' => 'Notifications par email',
+    'enabled' => 'Activée',
+    'mail_enabled_hp' => "Activer l'envoi des notifications par courriel si possible",
+    'mail_email' => 'Email',
+    'mail_email_ph' => "Entrez le courrier électronique de l'expéditeur",
+    'mail_email_hp' => "Spécifiez l'adresse e-mail de l'expéditeur",
+    'mail_name' => 'Nom du courrier',
+    'mail_name_ph' => "Entrez le nom de l'expéditeur",
+    'mail_name_hp' => "Indiquez le nom de l'expéditeur",
+    'mail_host' => 'Hôte du courrier',
+    'mail_host_ph' => "Entrez l'hôte du courrier",
+    'mail_host_hp' => "Spécifiez l'hôte du courrier utilisé pour envoyer un courriel",
+    'mail_port' => 'Mail Port',
+    'mail_port_ph' => 'Entrez le port de messagerie',
+    'mail_port_hp' => "Spécifiez le port de l'hôte utilisé lors de l'envoi du courrier électronique",
+    'mail_username' => "Nom d'utilisateur du courrier électronique",
+    'mail_username_ph' => "Entrez le nom d'utilisateur du courrier électronique",
+    'mail_username_hp' => "Spécifiez le nom d'utilisateur du courrier électronique utilisé pour l'authentification",
+    'mail_password' => 'Mot de passe du courrier électronique',
+    'mail_password_ph' => 'Entrez le mot de passe du courrier électronique',
+    'mail_password_hp' => "Spécifiez le mot de passe utilisé pour l'authentification",
+    'mail_encription' => 'Cryptage du courrier',
+    'mail_encription_ph' => 'Entrez le chiffrement du courrier',
+    'mail_encription_hp' => "Précisez l'énonciation du courrier",
+    'save_settings' => 'Paramètres de sauvegarde des notifications',
+    'settings_updated' => 'Les paramètres des notifications sont mis à jour!',
+    'send_notification' => 'Envoyer la notification',
+];

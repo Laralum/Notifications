@@ -1,0 +1,61 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Notifications Language Lines
+    |--------------------------------------------------------------------------
+    */
+
+    'notifications' => 'Notificaciones',
+    'my_notifications' => 'Mis Notificaciones',
+    'notifications_desc' => 'Ver todas las notificaciones en un solo lugar',
+    'home' => 'Inicio',
+    'subject' => 'Tema',
+    'date' => 'Fecha',
+    'status' => 'Estado',
+    'read' => 'Leer',
+    'unread' => 'No leído',
+    'notification_sent' => 'La notificación ha sido enviada',
+    'view_notification' => 'Ver notificación',
+    'notification_info' => 'Visualización de la notificación #:id enviada :created',
+    'sent_by' => 'Enviado por',
+    'create_notification' => 'Crear notificación',
+    'create_notification_info' => 'Crear una nueva notificación a un usuario',
+    'user_email' => 'Correo electrónico del usuario',
+    'user_email_ph' => 'Ingrese el correo electrónico del usuario',
+    'subject_ph' => 'Introduzca el asunto del mensaje',
+    'message' => 'Mensaje',
+    'message_ph' => 'Introduzca el mensaje que desea notificar',
+    'markdown_accepted' => 'Usted es libre de usar la reducción en el mensaje de notificación',
+    'new_notification' => '¡Tiene una nueva notificación!',
+    'new_message' => 'Usted tiene un nuevo mensaje en su panel de notificaciones, ¡echa un vistazo!',
+    'mail_enabled' => 'Notificaciónes de Correo Electrónico',
+    'enabled' => 'Habilitado',
+    'mail_enabled_hp' => 'Habilitar el envío de notificaciones por correo electrónico si es posible',
+    'mail_email' => 'Email',
+    'mail_email_ph' => 'Introduzca el correo electrónico del remitente',
+    'mail_email_hp' => 'Especifique la dirección de correo electrónico del remitente',
+    'mail_name' => 'Nombre del correo',
+    'mail_name_ph' => 'Introduzca el nombre del remitente',
+    'mail_name_hp' => 'Especificar el nombre del remitente',
+    'mail_host' => 'Anfitrión del correo',
+    'mail_host_ph' => 'Introduzca el host de correo',
+    'mail_host_hp' => 'Especificar el host del correo utilizado para enviar correo electrónico',
+    'mail_port' => 'Puerto de correo',
+    'mail_port_ph' => 'Introduzca el puerto de correo',
+    'mail_port_hp' => 'Especifique el puerto del host utilizado al enviar correo electrónico',
+    'mail_username' => 'Correo electrónico',
+    'mail_username_ph' => 'Introduzca el nombre de correo',
+    'mail_username_hp' => 'Especifique el nombre de usuario del correo utilizado para autenticar',
+    'mail_password' => 'Contraseña del correo',
+    'mail_password_ph' => 'Introduzca la contraseña de correo',
+    'mail_password_hp' => 'Especifique la contraseña del correo utilizada para autenticar',
+    'mail_encription' => 'Cifrado de correo',
+    'mail_encription_ph' => 'Introduzca el cifrado del correo',
+    'mail_encription_hp' => 'Especificar la encripción de correo',
+    'save_settings' => 'Guardar configuraciones de notificaciones',
+    'settings_updated' => 'Configuración de notificaciones actualizada!',
+    'send_notification' => 'Enviar notificación',
+];

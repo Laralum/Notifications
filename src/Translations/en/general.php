@@ -62,4 +62,8 @@ return [
     'save_settings'             => 'Save Notifications Settings',
     'settings_updated'          => 'Notifications settings updated!',
     'send_notification'         => 'Send Notification',
+
+    'unauthorized_action'       => 'Unauthorized Action',
+    'unauthorized_desc'         => "You're not allowed to update the notifications settings.",
+    'contact_webmaster'         => 'If you think you should be able to update it, please contact webmaster.',
 ];

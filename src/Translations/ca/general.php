@@ -58,4 +58,8 @@ return [
     'save_settings'            => 'Guardar Configuració de notificacions',
     'settings_updated'         => 'Configuració de notificacions actualitzades!',
     'send_notification'        => 'Enviar notificació',
+
+    'unauthorized_action'       => 'Acció no autoritzada',
+    'unauthorized_desc'         => "No està autoritzat per actualitzar la configuració de notificacions.",
+    'contact_webmaster'         => "Si vostè creu que hauria de ser capaç d'actualitzar, si us plau, poseu-vos en contacte amb el webmaster.",
 ];

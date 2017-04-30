@@ -58,4 +58,8 @@ return [
     'save_settings'            => 'Salva Impostazioni Notifiche',
     'settings_updated'         => 'Impostazioni Notifiche aggiornate!',
     'send_notification'        => 'Invia notifica',
+
+    'unauthorized_action'       => 'Azione non autorizzata',
+    'unauthorized_desc'         => "Non puoi aggiornare le impostazioni delle notifiche.",
+    'contact_webmaster'         => 'Se pensi di potervi aggiornare, contatta il webmaster.',
 ];

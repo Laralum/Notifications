@@ -58,4 +58,8 @@ return [
     'save_settings'            => 'Einstellungen speichern',
     'settings_updated'         => 'Benachrichtigungseinstellungen aktualisiert!',
     'send_notification'        => 'Benachrichtigung senden',
+
+    'unauthorized_action'       => 'Unbefugte Handlung',
+    'unauthorized_desc'         => "Sie können die Benachrichtigungen nicht aktualisieren.",
+    'contact_webmaster'         => "Wenn du denkst, du solltest es in der Lage sein, es zu aktualisieren, bitte wenden Sie sich an webmaster.",
 ];

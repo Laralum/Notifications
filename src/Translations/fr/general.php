@@ -58,4 +58,8 @@ return [
     'save_settings'            => 'Paramètres de sauvegarde des notifications',
     'settings_updated'         => 'Les paramètres des notifications sont mis à jour!',
     'send_notification'        => 'Envoyer la notification',
+
+    'unauthorized_action'       => 'Action non autorisée',
+    'unauthorized_desc'         => "Vous n'êtes pas autorisé à mettre à jour les paramètres des notifications.",
+    'contact_webmaster'         => 'Si vous pensez pouvoir le mettre à jour, contactez le webmaster.',
 ];

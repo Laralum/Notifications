@@ -2,7 +2,7 @@
     $settings = Laralum\Notifications\Models\Settings::first();
 @endphp
 <div uk-grid>
-    @can('update', \Laralum\Tickets\Models\Settings::class)
+    @can('update', \Laralum\Notifications\Models\Settings::class)
         <div class="uk-width-1-1@s uk-width-1-5@l"></div>
         <div class="uk-width-1-1@s uk-width-3-5@l">
             <form class="uk-form-horizontal" method="POST" action="{{ route('laralum::notifications.settings.update') }}">

@@ -29,19 +29,9 @@ class NotificationsServiceProvider extends ServiceProvider
      */
     protected $permissions = [
         [
-            'name' => 'Notifications Access',
-            'slug' => 'laralum::notifications.access',
-            'desc' => 'Grants access to laralum/notifications module',
-        ],
-        [
             'name' => 'Create Notifications',
             'slug' => 'laralum::notifications.create',
             'desc' => 'Allows creating notifications',
-        ],
-        [
-            'name' => 'View Notifications',
-            'slug' => 'laralum::notifications.view',
-            'desc' => 'Allows viewing notifications',
         ],
         [
             'name' => 'Edit Notifications Settings',
@@ -59,8 +49,13 @@ class NotificationsServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        $this->loadViewsFrom(__DIR__.'/Views', 'laralum_notifications');
         $this->loadTranslationsFrom(__DIR__.'/Translations', 'laralum_notifications');
+
+        $this->loadViewsFrom(__DIR__.'/Views', 'laralum_notifications');
+
+        $this->publishes([
+            __DIR__.'/Views/public' => resource_path('views/vendor/laralum_notifications/public'),
+        ], 'laralum_notifications');
 
         if (!$this->app->routesAreCached()) {
             require __DIR__.'/Routes/web.php';

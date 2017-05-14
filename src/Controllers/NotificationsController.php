@@ -82,9 +82,13 @@ class NotificationsController extends Controller
     {
         $this->authorize('update', Settings::class);
 
-        Settings::first()->update([
+        $settings = Settings::first();
+
+        $settings->update([
             'mail_enabled' => $request->mail_enabled ? true : false,
         ]);
+
+        $settings->touch();
 
         return redirect()->route('laralum::settings.index', ['p' => 'Notifications'])->with('success', __('laralum_notifications::general.settings_updated'));
     }

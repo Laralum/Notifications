@@ -24,18 +24,6 @@ class NotificationsPolicy
     }
 
     /**
-     * Determine if the current user can access notifications module.
-     *
-     * @param mixed $user
-     *
-     * @return bool
-     */
-    public function access($user)
-    {
-        return User::findOrFail($user->id)->hasPermission('laralum::notifications.access');
-    }
-
-    /**
      * Determine if the current user can view the notifications.
      *
      * @param mixed $user
@@ -44,17 +32,7 @@ class NotificationsPolicy
      */
     public function view($user, Notification $notification)
     {
-        $user = User::findOrFail($user->id);
-
-        if (!$user->hasPermission('laralum::notifications.view')) {
-            return false;
-        }
-
-        if ($notification->notifiable_id != $user->id) {
-            return false;
-        }
-
-        return true;
+        return !($notification->notifiable_id != $user->id);
     }
 
     /**

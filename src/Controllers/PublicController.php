@@ -4,10 +4,7 @@ namespace Laralum\Notifications\Controllers;
 
 use App\Http\Controllers\Controller;
 use Auth;
-use Illuminate\Http\Request;
 use Laralum\Notifications\Models\Notification;
-use Laralum\Notifications\Models\Settings;
-use Laralum\Notifications\Notifications\MessageNotification;
 use Laralum\Users\Models\User;
 
 class PublicController extends Controller
@@ -37,5 +34,4 @@ class PublicController extends Controller
 
         return view('laralum_notifications::public.show', ['notification' => $notification]);
     }
-
 }

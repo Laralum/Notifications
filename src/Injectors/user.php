@@ -9,5 +9,6 @@ return [
     [
         'text'  => __('laralum_notifications::general.create_notification'),
         'url'   => route('laralum::notifications.create'),
+        'permission' => 'laralum::notifications.create',
     ],
 ];

@@ -28,7 +28,7 @@ return [
     'subject_ph'               => 'Introduzca el asunto del mensaje',
     'message'                  => 'Mensaje',
     'message_ph'               => 'Introduzca el mensaje que desea notificar',
-    'markdown_accepted'        => 'Usted es libre de usar la reducción en el mensaje de notificación',
+    'markdown_accepted'        => 'Usted es libre de usar Markdown en el mensaje de notificación',
     'new_notification'         => '¡Tiene una nueva notificación!',
     'new_message'              => 'Usted tiene un nuevo mensaje en su panel de notificaciones, ¡echa un vistazo!',
     'mail_enabled'             => 'Notificaciónes de Correo Electrónico',
